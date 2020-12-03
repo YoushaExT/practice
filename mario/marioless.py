@@ -1,3 +1,4 @@
+# keep promting for input in range of 1-8
 while True:
     height = int(input("Height: "))
     if height>=1 and height<=8:
