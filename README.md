@@ -1,1 +1,1 @@
-Using this repository for some private practice projects
+Using this repository for some practice projects
