@@ -5,10 +5,13 @@ n = int(input("Enter a number: "))
 def calcSqRoot(n):
     r=1
     for i in range(10000):
+        # too large
         if n/r-r>0.1:
             r*=3
+        # too small
         elif n/r-r<-0.1:
             r/=2
+        # close
         else:
             print("break")
             break
