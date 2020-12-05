@@ -13,4 +13,8 @@ for i in range(1000,3001):
         if j==len(i)-1:
             L.append(i)
 
+    # alternatively
+    # if (int(i[0])%2==0) and (int(i[1])%2==0) and (int(i[2])%2==0) and (int(i[3])%2==0):
+    #     L.append(i)
+
 print(','.join(L))
