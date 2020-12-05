@@ -5,10 +5,11 @@
 
 # convert comma seperated string input to list, then convert each element in the list to int
 l=[int(x) for x in input().split(",")]
-row = X col
+# row = X column = Y
 X=l[0]
 Y=l[1]
 
+#method 1
 A=[]
 
 for i in range(X):
@@ -18,8 +19,7 @@ for i in range(X):
 
 print(A)
 
-
-# alternatively
+#method 2
 B=[[y*x for y in range(Y)] for x in range(X)]
 
 print(B)
