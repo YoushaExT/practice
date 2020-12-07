@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <!--todo-->
+    <!--<head>-->
+    <!--    <div class="alert alert-primary border text-center" role="alert">-->
+    <!--                Bought!-->
+    <!--    </div>-->
+    <!--</head>-->
+
+    <table align="center">
+    <tr>
+        <th>
+            Symbol
+        </th>
+        <th>
+            Shares
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            Transacted
+        </th>
+        <th>
+            Type
+        </th>
+
+    </tr>
+
+    {% for n in d %}
+    <tr>
+        <td>
+            {{ d[n][0] }}
+        </td>
+
+        <td>
+            {{ d[n][1] }}
+        </td>
+
+        <td>
+            ${{ d[n][2] }}
+        </td>
+
+        <td>
+            {{ d[n][3] }}
+        </td>
+        <td>
+            {% if d[n][1] < 0 %}
+            Sell
+            {% else %}
+            Buy
+            {% endif %}
+
+
+        </td>
+    </tr>
+    {% endfor %}
+
+
+{% endblock %}

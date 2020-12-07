@@ -4,36 +4,53 @@
 # D means deposit while W means withdrawal. Suppose the following input is supplied to the program: D 300 D 300 W 200 D 100
 # Then, the output should be: 500
 
-s = input()
+# s = input()
+#
+# print(s)
+# a=s.split(" ")
+# b="".join(a)
+# D=""
+# W=""
+# i_D=0
+# i_W=0
+#
+# for i in b:
+#     if i.isnumeric():
+#         if addMode=='D':
+#             D+=i
+#         elif addMode=='W':
+#             W+=i
+#     else:
+#         if D:
+#             i_D += int(D)
+#             D=""
+#         if W:
+#             i_W += int(W)
+#             W=""
+#
+#         addMode=i
+# if D:
+#     i_D += int(D)
+# if W:
+#     i_W += int(W)
+#
+# net = i_D-i_W
+#
+# print(net)
 
-print(s)
-a=s.split(" ")
-b="".join(a)
-D=""
-W=""
-i_D=0
-i_W=0
 
-for i in b:
-    if i.isnumeric():
-        if addMode=='D':
-            D+=i
-        elif addMode=='W':
-            W+=i
+netAmount = 0
+while True:
+    s = input()
+    if not s:
+        break
+    values = s.split(" ")
+    operation = values[0]
+    amount = int(values[1])
+    if operation=="D":
+        netAmount+=amount
+    elif operation=="W":
+        netAmount-=amount
     else:
-        if D:
-            i_D += int(D)
-            D=""
-        if W:
-            i_W += int(W)
-            W=""
-
-        addMode=i
-if D:
-    i_D += int(D)
-if W:
-    i_W += int(W)
-
-net = i_D-i_W
-
-print(net)
+        pass
+print(netAmount)

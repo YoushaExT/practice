@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    <!--todo-->
+    <!--<h1>-->
+    <!--    HELLO {{ number }}-->
+    <!--</h1>-->
+    <table>
+        <tr>
+            <td>
+                <b>Name</b>
+            </td>
+            <td>
+                <b>Price ($)</b>
+            </td>
+            <td>
+                <b>Symbol</b>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ name }}
+            </td>
+            <td>
+                {{ price }}
+            </td>
+            <td>
+                {{ symbol }}
+            </td>
+        </tr>
+    </table>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    <!--todo-->
+    <h1>
+        HELLO BUY2
+        <p>
+        </p>
+        Userid:
+        {{ userid }}
+
+        symbol= {{ symbol }}, price={{ price }}, quantity= {{ quantity }}, time = {{ time }}, username = {{ username }}, name = {{ name }}
+
+        <!--<p>-->
+        <!--    CASH: {{ cash }}-->
+        <!--</p>-->
+        <!--{{ r }}-->
+        <!--CASH:-->
+        <!--{{ c }}-->
+    </h1>
+{% endblock %}
+
+
+
+            {% for s in sym %}
+                {{ s["symbol"] }}
+                <option value=""{{ s["symbol"] }}"">{{ s["symbol"] }}</option>
+            {% end for %}

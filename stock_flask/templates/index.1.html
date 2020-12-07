@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <!--todo-->
+    <!--<head>-->
+    <!--    <div class="alert alert-primary border text-center" role="alert">-->
+    <!--                Bought!-->
+    <!--    </div>-->
+    <!--</head>-->
+
+    <table align="center">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Symbol
+        </th>
+        <th>
+            Shares
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            Total
+        </th>
+
+    </tr>
+    {% if length > 0 %}
+    {% for i in range(length) %}
+    <tr>
+        <td>
+            {{ s_name[i]["name"] }}
+        </td>
+        <td>
+            {{ sym[i]["symbol"] }}
+        </td>
+        <td>
+            {{ l[i][sym[i]["symbol"]] }}
+        </td>
+        <td>
+            ${{ lp[i][sym[i]["symbol"]] }}
+        </td>
+        <td>
+            ${{ lt[i][sym[i]["symbol"]] }}
+        </td>
+
+
+    </tr>
+    <p></p>
+    {% endfor %}
+    {% endif %}
+    <tr>
+        <td colspan="4">
+            CASH
+        </td>
+        <td>
+            ${{ c }}
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4">
+        </td>
+        <td>
+            ${{ total }}
+        </td>
+    </tr>
+
+
+
+{% endblock %}
