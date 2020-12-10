@@ -17,30 +17,21 @@ p = input()
 l = p.split(',')
 l2 =[]
 
-print(l)
 n=la=ua=c=ln=False
-# la = False
-# ua = False
-# c = False
-# ln = False
+
 
 for i in l:
     for j in i:
         if j.isnumeric():
-            print(f"{i} is numeric")
             n = True
         elif j.isalpha():
-            if j.lower() == j:
-                print(f"{i} is lower")
+            if j.islower():
                 la = True
-            elif j.upper() == j:
-                print(f"{i} is upper")
+            elif j.isupper():
                 ua = True
         elif j in '$#@':
-            print(f"{i} is in $#@")
             c = True
     if len(i) >= 6 and len(i) <= 12:
-        print(f"{i} is 6-12")
         ln = True
     if n and la and ua and c and ln:
         l2.append(i)
