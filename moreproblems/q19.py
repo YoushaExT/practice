@@ -16,29 +16,47 @@ for i in p:
     t=tuple(l)
     l2.append(t)
 
-# 1) sort by name
-l2.sort(key=lambda a:a[0])
-
-# since its bubble sort-ish need to repeat sort n*n times
-for y in range(len(l2)-1):
-    for x in range(len(l2)-1):
-        # if same name in consecutive elements
-        if l2[x][0]==l2[x+1][0]:
-            # 2) sort by age
-            if l2[x][1]>l2[x+1][1]:
-                tmp=l2[x+1]
-                l2[x+1]=l2[x]
-                l2[x]=tmp
-            # if age also match
-            elif l2[x][1]==l2[x+1][1]:
-                # 3) sort by score
-                if l2[x][2]>l2[x+1][2]:
-                    tmp=l2[x+1]
-                    l2[x+1]=l2[x]
-                    l2[x]=tmp
-
+l2.sort(key=lambda a:(a[0],a[1],a[2]))
 print(l2)
 
-# import collections
+# Method 2
+# 1) sort by name
+# l2.sort(key=lambda a:a[0])
+#
+# # since its bubble sort-ish need to repeat sort n*n times
+# for y in range(len(l2)-1):
+#     for x in range(len(l2)-1):
+#         # if same name in consecutive elements
+#         if l2[x][0]==l2[x+1][0]:
+#             # 2) sort by age
+#             if l2[x][1]>l2[x+1][1]:
+#                 tmp=l2[x+1]
+#                 l2[x+1]=l2[x]
+#                 l2[x]=tmp
+#             # if age also match
+#             elif l2[x][1]==l2[x+1][1]:
+#                 # 3) sort by score
+#                 if l2[x][2]>l2[x+1][2]:
+#                     tmp=l2[x+1]
+#                     l2[x+1]=l2[x]
+#                     l2[x]=tmp
+#
+# print(l2)
+
+# from operator import itemgetter, attrgetter
+#
+# l = []
+# while True:
+#     s = input()
+#     if not s:
+#         break
+#     l.append(tuple(s.split(",")))
+#
+# print sorted(l, key=itemgetter(0,1,2))
+
+# or
+# print(sorted(l, key=lambda a:(a[0],a[1],a[2])))
+
+# import collections itemgetter(0,1,2)
 # shows duplicates and no of times they repeat
 # collections.Counter(l2)
