@@ -43,6 +43,7 @@ print(l2)
 #
 # print(l2)
 
+#Method 3
 # from operator import itemgetter, attrgetter
 #
 # l = []
@@ -57,6 +58,7 @@ print(l2)
 # or
 # print(sorted(l, key=lambda a:(a[0],a[1],a[2])))
 
-# import collections itemgetter(0,1,2)
+#---ignore---
+# import collections
 # shows duplicates and no of times they repeat
 # collections.Counter(l2)
