@@ -6,34 +6,39 @@
 # Then, the output of the program should be:
 # [('John', '20', '90'), ('Jony', '17', '91'), ('Jony', '17', '93'), ('Json', '21', '85'), ('Tom', '19', '80')]
 
-p = input().split(' ')
+# Tom,19,80 John,20,90 Jony,17,95 Jony,17,93 Json,21,85 Tom,25,82 Tom,26,82 John,20,80 Yi,9,80 Yi,5,91 Yi,1,92  - test input no. 2
 
-d={}
+p = input().split(' ')
 l2=[]
 
 for i in p:
-
     l=i.split(',')
-    d['name']=l[0]
-    d['age']=l[1]
-    d['score']=l[2]
-    # need copy otherwise it will just point to the dictionary which will have changed
-    l2.append(d.copy())
+    t=tuple(l)
+    l2.append(t)
 
+# 1) sort by name
+l2.sort(key=lambda a:a[0])
+
+# since its bubble sort-ish need to repeat sort n*n times
+for y in range(len(l2)-1):
+    for x in range(len(l2)-1):
+        # if same name in consecutive elements
+        if l2[x][0]==l2[x+1][0]:
+            # 2) sort by age
+            if l2[x][1]>l2[x+1][1]:
+                tmp=l2[x+1]
+                l2[x+1]=l2[x]
+                l2[x]=tmp
+            # if age also match
+            elif l2[x][1]==l2[x+1][1]:
+                # 3) sort by score
+                if l2[x][2]>l2[x+1][2]:
+                    tmp=l2[x+1]
+                    l2[x+1]=l2[x]
+                    l2[x]=tmp
 
 print(l2)
-l3=[]
-for i in l2:
-    l3.append(i['name'])
 
-print(l3)
-l3.sort()
-print(l3)
-
-l4=[]
-for i in l3:
-    for j in l2:
-        if i==j["name"]:
-            l4.append(j.copy())
-
-print(l4)
+# import collections
+# shows duplicates and no of times they repeat
+# collections.Counter(l2)
