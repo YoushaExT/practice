@@ -7,12 +7,12 @@
 input1 = input().split(' ')
 
 myDict={}
-for word in input1:
-    myDict[word]=0
+# for word in input1:
+#     myDict[word]=0
 
 for word in input1:
     if word in input1:
-        myDict[word]+=1
+        myDict[word]=myDict.get(word,0)+1
 
 # convert dict to list of tuples
 l = list(myDict.items())
