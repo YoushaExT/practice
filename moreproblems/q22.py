@@ -14,14 +14,15 @@ for word in input1:
     if word in input1:
         myDict[word]+=1
 
-a=sorted(myDict.keys())
-
-myDict2={}
-
-for k in a:
-    myDict2[k]=myDict[k]
-print(myDict2)
+# convert dict to list of tuples
+l = list(myDict.items())
+# sort the list by the first parameter of the tuple i.e. keys
+l.sort(key=lambda a:a[0])
 
 # print formatting
-for i in myDict2:
-    print(f"{i}:{myDict2[i]} ",end="")
+s=''
+for t in l:
+    s+=f"{t[0]}:{t[1]} "
+
+# no space character after the last digit; slice the last char of str
+print(s[:-1])
