@@ -1,5 +1,5 @@
 # Define a function which can generate a dictionary where the keys are numbers between 1 and 20 (both included)
-# and the values are square of keys. The function should just print the values only.
+# and the values are square of keys. The function should just print the keys only.
 
 def myFunc():
     d={}
@@ -8,10 +8,14 @@ def myFunc():
         d[i]=i**2
 
     # method 1
-    # print(list(d.values()))
+    # print(list(d.keys()))
 
     # method 2
     # for (k,v) in d.items():
     #     print(k)
+
+    # method 3; when d becomes an iterable only keys are used
+    for i in d:
+        print(i)
 
 myFunc()
