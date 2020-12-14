@@ -18,3 +18,13 @@ print(s1)
 s2= zlib.decompress(s1)
 
 print(s2)
+
+# ==ignore==
+#utf-8 characters:
+# a="\N{GREEK CAPITAL LETTER DELTA}"
+# a='\u0394'
+# a='haha\U00000394haha'
+# b='dollar sign: \u0024'
+# c='pi: \u03A0'
+#
+# print(a,b,c)
