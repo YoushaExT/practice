@@ -9,6 +9,7 @@ def bin_search(L,e):
     bottom = 0
     top = len(L)-1 #-1 bcz 0 indexed
     while index==-1 and top>=bottom:
+    # for i in range(math.ceil(math.log(len(L),2))):
         mid = int((bottom+top)/2)
         if L[mid]==e:
             index=mid
