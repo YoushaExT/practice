@@ -10,10 +10,7 @@ class UF_quick:
         self.id=[x for x in range(n)]
 
     def connected(self,p,q):
-        if self.id[p]==self.id[q]:
-            return True
-        else:
-            return False
+        return self.id[p]==self.id[q]
 
     def union(self,p,q):
         p_id=self.id[p]
