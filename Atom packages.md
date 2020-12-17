@@ -3,7 +3,7 @@ Script -> to compile code inside without terminal
 
 auto complete python -> autocomplete suggessions (not working instead using ide-python)#
 
-file icon -> easier to identify different types of files (not working properly)#
+file icon -> easier to identify different types of files
 
 minimap -> easier scrolling similar to sublime for larger code
 
@@ -16,3 +16,5 @@ ide-python -> includes autocomplete jedi, different linters etc
 atom-ide-ui -> this is required by the above package
 
 pip install 'python-language-server[all]'
+
+atom-beautify -> for auto indentation etc.
