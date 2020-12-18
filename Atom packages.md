@@ -20,3 +20,5 @@ pip install 'python-language-server[all]'
 atom-beautify -> for auto indentation etc.
 
 platformio-ide-terminal -> terminal (powershell by default)
+
+python debugger
