@@ -18,3 +18,5 @@ atom-ide-ui -> this is required by the above package
 pip install 'python-language-server[all]'
 
 atom-beautify -> for auto indentation etc.
+
+platformio-ide-terminal -> terminal (powershell by default)
