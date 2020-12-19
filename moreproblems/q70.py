@@ -2,7 +2,7 @@
 #
 # Hints: Use "assert expression" to make assertion.
 
-L = [2,4,6,8]
+L = [1,2,4,6,8]
 
 for i in L:
     assert i%2==0,"not even"
