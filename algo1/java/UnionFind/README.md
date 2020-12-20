@@ -1,9 +1,14 @@
 This is a netBeans java project for implementing UnionFind algorithms.
 UnionFind is used to check for connectivity between two points.
+
 Some of its implementations are:
+
 Quick find - focus on faster find() method - quadratic time
+
 Quick union - focus on faster union() method - quadratic time
+
 Weighted quick union - logarithmic time
+
 Weighted quick union with compression - log star time*
 
 A Quick find class 'UF_quick' is create and its methods are tested using 'UF_quickTest' class,
