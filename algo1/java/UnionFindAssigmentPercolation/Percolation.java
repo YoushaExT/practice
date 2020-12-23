@@ -10,12 +10,15 @@ public class Percolation {
     // creates n-by-n grid, with all sites initially blocked
     private boolean[][] grid; // open or closed
     private boolean[][] full;
-    private final WeightedQuickUnionUF qu;
+    private WeightedQuickUnionUF qu; // todo - memory
     private final int n;
     private int count = 0;
     // private boolean percolates;
     // todo - backwash
     private final WeightedQuickUnionUF qu2;
+
+    // todo - memory - delete qu after use?
+    private boolean percolates = false;
 
     public Percolation(int n) {
         if (n < 1) throw new IllegalArgumentException(
@@ -137,15 +140,21 @@ public class Percolation {
     // does the system percolate?
     public boolean percolates() {
         // if any of the last row is full it does
+        // todo - memory - if already percolates return true since access to qu is lsot
+        if (this.percolates) return true;
         int index = (this.n - 1) * (this.n);
         // todo - fix for n=1
         if (this.n == 1 && this.grid[0][0] == false) return false;
-        if (qu.find(index) == qu.find(0))
-            return true; // whole first and last rows are virtually connected so their first elements will immediately connect when any connection is made
-        // for (int i = 1; i <= this.n; i++) {
-        //     if (isFull(this.n, i)) return true; // row no. N(last) columns i (1-N)
-        // }
-        return false;
+        // todo - memory
+        this.percolates = qu.find(index) == qu.find(0); // if 1,1 connected to last,1
+        if (this.percolates) qu = null;
+        return this.percolates;
+        // if (qu.find(index) == qu.find(0))
+        //     return true; // whole first and last rows are virtually connected so their first elements will immediately connect when any connection is made
+        // // for (int i = 1; i <= this.n; i++) {
+        // //     if (isFull(this.n, i)) return true; // row no. N(last) columns i (1-N)
+        // // }
+        // return false;
         // return this.percolates;
     }
 
@@ -166,7 +175,10 @@ public class Percolation {
         c = corner(c);
 
         int index1 = (r - 1) * (this.n) + c - 1; // since qu is 0 indexed and single argument
-        if (isOpen(r, c)) qu.union(index, index1);
+        // todo - memory - this test is only useful till percolation is determined; also it will give null ptr exception
+        if (!this.percolates) {
+            if (isOpen(r, c)) qu.union(index, index1);
+        }
         // todo - backwash - qu2 aswell ; not removing the qu because those connections are used by percolation()
         if (isOpen(r, c)) qu2.union(index, index1);
     }
