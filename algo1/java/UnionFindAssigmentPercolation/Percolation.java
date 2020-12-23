@@ -13,8 +13,7 @@ public class Percolation {
     private final WeightedQuickUnionUF qu;
     private final int n;
     private int count = 0;
-    private boolean percolates;
-    // private int last;
+    // private boolean percolates;
 
     public Percolation(int n) {
         if (n < 1) throw new IllegalArgumentException(
@@ -35,6 +34,13 @@ public class Percolation {
         for (int c = 0; c < n; c++) {
             qu.union(0, c);
         }
+
+        //connecting all the last row elements
+        int index = n * (n - 1);
+        for (int c = 0; c < n; c++) {
+            qu.union(index, index + c);
+        }
+
 
     }
 
@@ -155,9 +161,12 @@ public class Percolation {
     // does the system percolate?
     public boolean percolates() {
         // if any of the last row is full it does
-        for (int i = 1; i <= this.n; i++) {
-            if (isFull(this.n, i)) return true; // row no. N(last) columns i (1-N)
-        }
+        int index = (this.n - 1) * (this.n);
+        if (qu.find(index) == qu.find(0))
+            return true; // whole first and last rows are virtually connected so their first elements will immediately connect when any connection is made
+        // for (int i = 1; i <= this.n; i++) {
+        //     if (isFull(this.n, i)) return true; // row no. N(last) columns i (1-N)
+        // }
         return false;
         // return this.percolates;
     }
