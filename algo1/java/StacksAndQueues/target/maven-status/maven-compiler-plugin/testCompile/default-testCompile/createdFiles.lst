@@ -1,5 +1,8 @@
+com\yousha\algo1\stacksandqueues\LinkedStackTest.class
 com\yousha\algo1\stacksandqueues\ResizingArrayStackOfStringsTest.class
-com\yousha\algo1\stacksandqueues\FixedCapacityStackOfStringsTest.class
 com\yousha\algo1\stacksandqueues\QueueOfStringsTest.class
 com\yousha\algo1\stacksandqueues\LinkedStackOfStringsTest.class
 com\yousha\algo1\stacksandqueues\ArrayQueueOfStringsTest.class
+com\yousha\algo1\stacksandqueues\FixedCapacityStackOfStringsTest.class
+com\yousha\algo1\stacksandqueues\ResizingArrayStackTest.class
+com\yousha\algo1\stacksandqueues\ArrayQueueTest.class

@@ -1,7 +1,11 @@
 com\yousha\algo1\stacksandqueues\LinkedStackOfStrings.class
+com\yousha\algo1\stacksandqueues\ArrayQueue.class
 com\yousha\algo1\stacksandqueues\QueueOfStrings.class
+com\yousha\algo1\stacksandqueues\LinkedStack$Node.class
+com\yousha\algo1\stacksandqueues\ResizingArrayStack.class
 com\yousha\algo1\stacksandqueues\LinkedStackOfStrings$Node.class
 com\yousha\algo1\stacksandqueues\QueueOfStrings$Node.class
 com\yousha\algo1\stacksandqueues\ResizingArrayStackOfStrings.class
 com\yousha\algo1\stacksandqueues\FixedCapacityStackOfStrings.class
+com\yousha\algo1\stacksandqueues\LinkedStack.class
 com\yousha\algo1\stacksandqueues\ArrayQueueOfStrings.class
