@@ -19,6 +19,20 @@ be a generic implementation that can be used for all data types, not just string
 
 **ArrayQueueOfStrings:** It uses a resizing array to implement a queue of strings.
 
+**LinkedStack:** It uses a linked list to implement a generic stack, values of different data types such as Integer and String can be pushed to the stack.
+
+**ArrayQueue:** It uses a resizing array to implement a generic queue.
+
+**ResizingArrayStackOfStrings:** It uses a resizing array to implement a generic stack.
+
 The **test classes** are:
 
 **LinkedStackOfStringsTest, FixedCapacityStackOfStringsTest, ResizingArrayStackOfStringsTest, QueueOfStringsTest, ArrayQueueOfStringsTest** - These classes are used to test the above implementations.
+
+To implement a generic class:
+
+1) add <myGenericItem> beside the class name declaration (e.g. class Stack{} becomes class stack<Item>{})
+  
+2) replace all specific data types(e.g. String, int) in declaration with the name enclosed in diamond brackets (e.g. Item instead of String)
+
+3) In case on an array, create a new instance of Object class and cast it to Item[]. ( private Item[] q = new Item[N] instead of private String[] q = new String[N] would not work in java - so instead use - private Item[] q = **(Item[]) new Object[N];**
