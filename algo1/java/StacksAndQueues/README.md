@@ -31,7 +31,7 @@ The **test classes** are:
 
 To implement a generic class:
 
-1) add <myGenericItem> beside the class name declaration (e.g. class Stack{} becomes class stack<Item>{})
+1) add \<myGenericItem\> beside the class name declaration (e.g. class Stack{} becomes class stack\<Item\>{})
   
 2) replace all specific data types(e.g. String, int) in declaration with the name enclosed in diamond brackets (e.g. Item instead of String)
 
