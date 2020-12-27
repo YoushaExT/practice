@@ -1,4 +1,4 @@
-This is a netBeans java project for implementing Stacks and Queues.
+This is a netBeans java maven project for implementing Stacks and Queues.
 
 These are implemented using linked lists, fixed arrays and resizing arrays.
 
@@ -21,13 +21,15 @@ be a generic implementation that can be used for all data types, not just string
 
 **LinkedStack:** It uses a linked list to implement a generic stack, values of different data types such as Integer and String can be pushed to the stack.
 
+**Queue:** It uses a linked list to implement a generic queue.
+
 **ArrayQueue:** It uses a resizing array to implement a generic queue.
 
-**ResizingArrayStackOfStrings:** It uses a resizing array to implement a generic stack.
+**ResizingArrayStack:** It uses a resizing array to implement a generic stack.
 
 The **test classes** are:
 
-**LinkedStackOfStringsTest, FixedCapacityStackOfStringsTest, ResizingArrayStackOfStringsTest, QueueOfStringsTest, ArrayQueueOfStringsTest** - These classes are used to test the above implementations.
+**LinkedStackOfStringsTest, FixedCapacityStackOfStringsTest, ResizingArrayStackOfStringsTest, QueueOfStringsTest, ArrayQueueOfStringsTest, QueueTest, ArrayQueueTest, ResizingArrayStackTest** - These classes are used to test the above implementations.
 
 To implement a generic class:
 
