@@ -70,12 +70,6 @@ public class BruteCollinearPoints {
                             s.push(new LineSegment(order[0], order[3]));
                             this.numSeg++;
 
-                            // if (points[l].compareTo(points[k]) >= 0
-                            //         && points[k].compareTo(points[j]) >= 0
-                            //         && points[j].compareTo(points[i]) >= 0) {
-                            //     s.push(new LineSegment(points[i], points[l]));
-                            //     this.numSeg++;
-                            // }
                         }
                     }
                 }

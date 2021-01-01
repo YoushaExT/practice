@@ -50,39 +50,10 @@ public class FastCollinearPoints {
         // finding segments
         points = points.clone(); // work on a copy to ensure it is immutable
 
-        // for (Point p : points) {
-        //     StdOut.print(p.toString());
-        // }
-        // StdOut.println();
-        //
-        // for (Point p : pointsCopy) {
-        //     StdOut.print(p.toString());
-        // }
-        // StdOut.println();
-        //
-        // MergeX.sort(points, points[0].slopeOrder());
-        // for (Point p : points) {
-        //     StdOut.print(p.toString());
-        // }
-        // StdOut.println();
-        // for (Point p : pointsCopy) {
-        //     StdOut.print(p.toString());
-        // }
-
-        // for (Point p : points) {
-        //     StdOut.print(points[0].slopeTo(p) + " ");
-        // }
-        // MergeX.sort(points, points[0].slopeOrder());
-        // StdOut.println();
-        // for (Point p : points) {
-        //     StdOut.print(points[0].slopeTo(p) + " ");
-        // }
-
 
         for (int h = 0; h < points.length; h++) {
 
             // sort by slope w.r.t. h
-            // MergeX.sort(points, points[h].slopeOrder());
             // sort a copy to ensure h covers all points
             MergeX.sort(points, pointsCopy[h].slopeOrder());
             // prev value , after sorting h would be the first value
@@ -95,7 +66,6 @@ public class FastCollinearPoints {
                     while (points[0].slopeTo(points[j]) == prev) { // calculate j
                         j++;
                         if (j >= points.length) break; // prevents out of index access
-                        // else break;
                     }
                     if (j >= i + 2) { // means 2+ matches(3+-way) (4+ points)
                         // create copy
@@ -111,11 +81,15 @@ public class FastCollinearPoints {
                             d++;
                         } // copy complete
 
+                        // todo timing: can save time by using selection sort to only find copy[0]
+                        sortOnlyOne(copy);
+
                         // sort the copy (not by slope)
-                        MergeX.sort(copy);
-                        // todo prevent duplicates: only the smallest point is allowed to create a line
-                        // todo test: Is this point the smallest; this point is stored in pointsCopy[h];
+                        // MergeX.sort(copy); // todo changed for timing
+                        // prevent duplicates: only the smallest point is allowed to create a line
+                        // test: Is this point the smallest; this point is stored in pointsCopy[h];
                         if (pointsCopy[h].slopeTo(copy[0]) == Double.NEGATIVE_INFINITY) {
+                            MergeX.sort(copy);
                             // create line segment (from the lowest to the highest of the sorted)
                             s.push(new LineSegment(copy[0], copy[copy.length - 1]));
                             this.numSeg++;
@@ -131,54 +105,6 @@ public class FastCollinearPoints {
             }
 
         }
-
-
-        // finding segments old
-        /*
-        points = points.clone(); // work on a copy to ensure it is immutable
-
-        for (int i = 0; i < points.length; i++) {
-            // for each p
-            // sort by slope w.r.t. p
-            MergeX.sort(points, points[i].slopeOrder());
-
-            for (int j = i + 1; j < points.length - 1; j++) {
-                // for each q
-                int match = 0;
-                // if adjacent not equal
-                if (points[i].slopeTo(points[j]) != points[i].slopeTo(points[j + 1])) {
-                    continue;
-                }
-                for (int k = j + 1; k < points.length; k++) {
-                    if (points[i].slopeTo(points[j]) == points[i].slopeTo(points[k]))
-                        match++;
-                }
-                if (match >= 2) {
-
-                    StdOut.println(match);
-                    Point[] order = new Point[match + 2];
-
-                    order[0] = points[i];
-                    for (int x = 1; x < order.length; x++) {
-                        order[x] = points[j];
-                    }
-                    // order[0] = points[i];
-                    // order[1] = points[j];
-                    // order[2] = points[k];
-                    // order[3] = points[l];
-
-                    MergeX.sort(order);
-                    s.push(new LineSegment(order[0], order[match + 1]));
-
-                    // s.push(new LineSegment(points[i], points[j + match]));
-                    this.numSeg++;
-                }
-
-            }
-        }
-
-        */
-
 
         // store all values in the line segment array
         this.ls = new LineSegment[s.size()];
@@ -197,6 +123,31 @@ public class FastCollinearPoints {
     public LineSegment[] segments() {
         return this.ls.clone();
     }               // the line segments todo
+
+    // todo timing fix
+    private static void sortOnlyOne(Point[] a) {
+        int n = a.length;
+        // for (int i = 0; i < n; i++) {
+        int i = 0;
+        int min = i;
+        for (int j = i + 1; j < n; j++) {
+            if (less(a[j], a[min])) min = j;
+        }
+        exch(a, i, min);
+
+        // }
+
+    }
+
+    private static boolean less(Point v, Point w) {
+        return v.compareTo(w) < 0;
+    }
+
+    private static void exch(Object[] a, int i, int j) {
+        Object swap = a[i];
+        a[i] = a[j];
+        a[j] = swap;
+    }
 
     public static void main(String[] args) {
 
