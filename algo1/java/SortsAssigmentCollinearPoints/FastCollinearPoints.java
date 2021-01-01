@@ -94,7 +94,7 @@ public class FastCollinearPoints {
                     int j = i + 1;
                     while (points[0].slopeTo(points[j]) == prev) { // calculate j
                         j++;
-                        if (j >= points.length - 1) break;// prevents out of index access
+                        if (j >= points.length) break;// prevents out of index access
                         // else break;
                     }
                     if (j >= i + 2) { // means 2+ matches(3+-way) (4+ points)
@@ -113,8 +113,13 @@ public class FastCollinearPoints {
 
                         // sort the copy (not by slope)
                         MergeX.sort(copy);
-                        // create line segment (from the lowest to the highest of the sorted)
-                        s.push(new LineSegment(copy[0], copy[copy.length - 1]));
+                        // todo prevent duplicates: only the smallest point is allowed to create a line
+                        // todo test: Is this point the smallest; this point is stored in pointsCopy[h];
+                        if (pointsCopy[h].slopeTo(copy[0]) == Double.NEGATIVE_INFINITY) {
+                            // create line segment (from the lowest to the highest of the sorted)
+                            s.push(new LineSegment(copy[0], copy[copy.length - 1]));
+                        }
+
                         // jump i to skip all the values already seen by j
                         i = j - 1; // will become i=j after i++ from for loop
                     }
