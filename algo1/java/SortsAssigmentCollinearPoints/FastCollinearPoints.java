@@ -94,7 +94,7 @@ public class FastCollinearPoints {
                     int j = i + 1;
                     while (points[0].slopeTo(points[j]) == prev) { // calculate j
                         j++;
-                        if (j >= points.length) break;// prevents out of index access
+                        if (j >= points.length) break; // prevents out of index access
                         // else break;
                     }
                     if (j >= i + 2) { // means 2+ matches(3+-way) (4+ points)
@@ -118,6 +118,7 @@ public class FastCollinearPoints {
                         if (pointsCopy[h].slopeTo(copy[0]) == Double.NEGATIVE_INFINITY) {
                             // create line segment (from the lowest to the highest of the sorted)
                             s.push(new LineSegment(copy[0], copy[copy.length - 1]));
+                            this.numSeg++;
                         }
 
                         // jump i to skip all the values already seen by j
@@ -225,6 +226,8 @@ public class FastCollinearPoints {
             segment.draw();
         }
         StdDraw.show();
+
+        // StdOut.println(collinear.numberOfSegments()); // to test number of segments
 
     }
 }
