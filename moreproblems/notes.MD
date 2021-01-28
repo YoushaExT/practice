@@ -9,3 +9,5 @@ Usage assert<statement>,<"this message is displayed on failure">
 
 .get can be used on a dictionary object to get a default value. This way there is no need to initialize the dictionary and increment separately. E.g. d[char]=d.get(char,0)+1
 is same as initializing all d[char] to 0 then incrementing by 1.
+
+string.join(list) converts list to a str, the string would fill the gaps within the elements of the list. E.g. ','.join([1,2]) --> '1,2'
